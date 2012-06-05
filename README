@@ -1,5 +1,5 @@
 This is a recurrent neural network architecture inspired by Long Short Term Memory, but with a much simpler architecture.
 
-I will be adding more documentation to describe this architecture shortly. For now, a brief summary is that it has only two gates - one for representing the "current" input, and another that is similar to the Forget Gate of LSTM. But rather than acting to reset the state of the cell, it performs a weighted average, controlling the amount by which the cell is updated to the "current" value, versus retaining its previous state.
+I will be adding more documentation to describe this architecture shortly. For now, a brief summary is that it has only a single gate (similar to the Forget Gate in LSTM) and an input squashing function. Rather than acting to reset the state of the cell, the gate modulates a weighted average of the current input with the state of the cell at the previous time step. So if the gate is fully active, the cell will ignore its current input and fully retain its state. If the gate is inactive then the cell will lose all traces of its previous state and shift to match the current input.
 
 So far on a few tests I've done, it appears to perform fairly well, although it tends to need more cell blocks than LSTM to do the same thing.
